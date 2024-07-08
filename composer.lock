@@ -4,8 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc26cad540a33f6ba89e0cd819ce09f4",
+    "content-hash": "90b2266522fe91924b048672691df294",
     "packages": [
+        {
+            "name": "deepcommerce/phpshop",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DeepCommerce/phpshop.git",
+                "reference": "4a14e1785dfc9c06ddefc73a19dc830f85c82825"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DeepCommerce/phpshop/zipball/4a14e1785dfc9c06ddefc73a19dc830f85c82825",
+                "reference": "4a14e1785dfc9c06ddefc73a19dc830f85c82825",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Deepcommerce\\Phpshop\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Collection of PHP classes to support creating a DeepCommerce Backen-for-Frontend",
+            "support": {
+                "issues": "https://github.com/DeepCommerce/phpshop/issues",
+                "source": "https://github.com/DeepCommerce/phpshop/tree/v1.0.7"
+            },
+            "time": "2024-07-08T11:36:10+00:00"
+        },
         {
             "name": "guzzlehttp/guzzle",
             "version": "7.8.1",
