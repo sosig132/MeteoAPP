@@ -28,10 +28,10 @@ class MeteoCommand extends Command
         $service = $input->getArgument('service');
         $weatherApi = null;
         if ($service == 'weatherapi') {
-            $weatherApi = new WeatherApiClass();
+            $weatherApi = new WeatherApiClass($city);
         }
         elseif($service == 'visualcrossing'){
-            $weatherApi = new VisualCrossingClass();
+            $weatherApi = new VisualCrossingClass($city);
         }
         $temperature = $weatherApi->getMeteo($city);
 

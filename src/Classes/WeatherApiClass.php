@@ -9,51 +9,18 @@ use GuzzleHttp\Client;
 use ParagonIE\EasyDB\Factory;
 
 
-class WeatherApiClass implements MeteoInterface
+class WeatherApiClass extends  Weather
 {
 
-    public function getMeteo($location)
-    {
+    function __construct($location){
+        $this->api_key="0a64092891924d99a4084405240807";
+        $this->service="weatherapi";
+        $this->base_url = "https://api.weatherapi.com/v1/current.json?key={$this->api_key}&q={$location}";
+    }
 
-        $service = 'weatherapi';
-        $db = Factory::fromArray([
-            'mysql:host=localhost;dbname=MeteoAPP',
-            'root',
-            'root'
-        ]);
-
-        $row = $db->run("SELECT * FROM temperatures WHERE location = '$location' and service = '$service' ORDER BY id DESC LIMIT 1");
-
-        if($row){
-            $currentTime = new DateTime();
-            $fetchedTime = new DateTime($row[0]["time"]);
-            $diff = $currentTime->diff($fetchedTime);
-
-            if ($diff->i < 1 && $diff->h === 0 && $diff->d === 0 && $diff->m === 0 && $diff->y === 0) {
-                return "fetched from db " . $row[0]["temperature"];
-            }
-
-        }
-
-        $api_key = "0a64092891924d99a4084405240807";
-        $base_url = "https://api.weatherapi.com/v1/current.json?";
-        $client = new Client();
-        $response = null;
-        try {
-            $response = $client->request('GET', $base_url . 'key=' . $api_key . '&q=' . $location);
-        } catch (\GuzzleHttp\Exception\GuzzleException $e) {
-            $response = $e->getMessage();
-        }
-        $data = json_decode($response->getBody()->getContents());
-
+    public function getTempFromApi($data){
         $temp = $data->current->temp_c;
-
-
-        $date = new DateTime();
-        $formattedDate = $date->format('Y-m-d H:i:s');
-
-        $db->insert("temperatures", ['temperature'=>$temp, 'location' => $location, 'service' => $service, 'time' => $formattedDate]);
-
+        $this->setTemp($temp);
         return $temp;
     }
 }
