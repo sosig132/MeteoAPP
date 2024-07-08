@@ -4,6 +4,7 @@
         "symfony/console": "^6.4",
         "guzzlehttp/guzzle": "^7.8",
         "paragonie/easydb": "^3",
+        "symfony/polyfill-ctype": "^1.30",
         "deepcommerce/phpshop": "^1.0"
     },
     "autoload": {

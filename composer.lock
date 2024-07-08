@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "90b2266522fe91924b048672691df294",
+    "content-hash": "9cfc4523be0957678bc7e58ca71c8f06",
     "packages": [
         {
             "name": "deepcommerce/phpshop",
