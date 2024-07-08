@@ -13,7 +13,7 @@ class WeatherApiClass extends  Weather
 {
 
     function __construct($location){
-        $this->api_key="zzz0a64092891924d99a4084405240807";
+        $this->api_key="0a64092891924d99a4084405240807";
         $this->service="weatherapi";
         $this->base_url = "https://api.weatherapi.com/v1/current.json?key={$this->api_key}&q={$location}";
     }
